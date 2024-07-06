@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./form.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">Registration</div>
+        <div class="content">
+          <form action="#">
+            <div class="user-details">
+              <div class="input-box">
+                <span class="details">Full Name</span>
+                <input type="text" id="fname" placeholder="Enter your name">
+               <p id = num1 style="color: red;"></p></div>
+              <div class="input-box">
+                <span class="details">Username</span>
+                <input type="text" id="uname" placeholder="Enter your username">
+                <p id = unum style="color: red;"></p>
+              </div>
+              <div class="input-box">
+                <span class="details">Email</span>
+                <input type="text" id="email" placeholder="Enter your email">
+                <p id = mail1 style = "color: red;"></p>
+              </div>
+              <div class="input-box">
+                <span class="details">Phone Number</span>
+                <input type="text" id="phone" placeholder="Enter your number"> 
+                <p id = num2 style="color: red;"></p>
+              </div>
+              <div class="input-box">
+                <span class="details">Password</span>
+                <input type="password" id="pwd" placeholder="Enter your password">
+                <p id ="pass" style="color: red;"></p>
+              </div>
+              <div class="input-box">
+                <span class="details">Confirm Password</span>
+                <input type="password" id="cpwd" placeholder="Confirm your password">
+                <p id = pass1 style="color: red;"></p> 
+              </div>
+            </div>
+            <div class="gender-details">
+              <input type="radio" name="gender" id="dot1">
+              <input type="radio" name="gender" id="dot2">
+              <input type="radio" name="gender" id="dot3">
+              <span class="gender-title">Gender</span>
+              <div class="category">
+                <label for="dot1">
+                <span class="dot one"></span>
+                <span class="gender">Male</span>
+              </label>
+              <label for="dot2">
+                <span class="dot two"></span>
+                <span class="gender">Female</span>
+              </label>
+              <label for="dot3">
+                <span class="dot three"></span>
+                <span class="gender">Prefer not to say</span>
+                </label>
+              </div>
+              <p id = check style="color: red;"></p>
+            </div>
+            <div class="button">
+              <input type="submit"  onclick="myfunction()" value="Register">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <script>
+        function myfunction(){
+
+let name=document.getElementById('fname').value
+ let patterns = /^[a-zA-Z ]{2,30}$/;
+
+if (name == "")
+{
+    document.getElementById("num1").innerHTML="enter your name"
+}
+else if(!patterns.test(name)){
+    document.getElementById("num1").innerHTML="enter a valid name"
+}
+else{
+    document.getElementById("num1").innerHTML=""
+}
+// ---------------  next section ---------------
+
+let names=document.getElementById('uname').value
+
+if (names == "")
+{
+    document.getElementById("unum").innerHTML="enter your username"
+}
+else{
+    document.getElementById("unum").innerHTML=""
+}
+// ---------------  next section ---------------
+let phone = document.getElementById('phone').value
+let pattern = /^(\d{3})[- ]?(\d{3})[- ]?(\d{4})$/;
+if(phone == "")
+{
+    document.getElementById("num2").innerHTML="enter your number"
+}
+else if(!pattern.test(phone)){
+    document.getElementById("num2").innerHTML="enter a valid number"
+}
+else{
+    document.getElementById("num2").innerHTML=""
+}
+//--------------  next section --------------------
+
+let mail = document.getElementById('email').value
+let pattern1 = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+if(mail == "")
+{
+    document.getElementById("mail1").innerHTML="enter your mail"
+}
+else if(!pattern1.test(mail)){
+    document.getElementById("mail1").innerHTML="enter a valid mail"
+}
+else{
+    document.getElementById("mail1").innerHTML=""
+}
+
+// ---------------  next section -------------------
+let password = document.getElementById('pwd').value
+let p = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+if(password == "")
+{
+    document.getElementById("pass").innerHTML="enter your password"
+}
+else if(!p.test(password)){
+    document.getElementById("pass").innerHTML="enter your correct password"
+}
+else{
+    document.getElementById("pass").innerHTML=""
+}
+// ---------------  next section -------------------
+let  cpassword = document.getElementById('cpwd').value
+let p1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+if(cpassword == "")
+{
+    document.getElementById("pass1").innerHTML="confirm your password"
+}
+else if(password != cpassword){
+    document.getElementById("pass1").innerHTML="enter your correct password"
+}
+else{
+    document.getElementById("pass1").innerHTML=""
+}
+// ----------------  next section --------------------
+if(dot1.checked){
+    document.getElementById("check").innerHTML=""
+}
+else if(dot2.checked){
+    document.getElementById("check").innerHTML=""
+}
+else if(dot3.checked){
+    document.getElementById("check").innerHTML=""
+}
+else{
+    document.getElementById("check").innerHTML="choose any one of the option"
+}
+//------------------ next section ---------------------
+
+
+
+ }
+</script>
+
+</body>
+</html>
